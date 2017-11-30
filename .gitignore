@@ -1,0 +1,8 @@
+/.metadata/
+*.class
+
+.classpath
+.project
+.settings
+.vscode
+*.ignore
