@@ -36,7 +36,7 @@ class Controller {
   }
 
   synchronized void on(){
-    if(controlState!=INACTIVE && cs.getSpeed() > 40){
+    if(controlState!=INACTIVE && cs.getSpeed() >= 40){
       sc.recordSpeed(); sc.enableControl();
       controlState=CRUISING;
     }
