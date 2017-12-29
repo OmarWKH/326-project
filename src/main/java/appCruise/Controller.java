@@ -14,7 +14,7 @@ class Controller {
 
   synchronized void brake(){
     if (controlState==CRUISING )
-      {controlState=STANDBY; }
+      {sc.disableControl(); controlState=STANDBY; }
   }
 
   synchronized void accelerator(){
