@@ -66,7 +66,7 @@ public class CruiseDisplay extends Canvas {
         g.drawString("Cruise Speed",x,y+10);
         g.drawRect(x+20,y+20,50,20);
         g.setFont(big);
-        g.drawString(String.valueOf(speed+20),x+30,y+37);
+        g.drawString(String.valueOf(speed),x+30,y+37);
         g.setFont(small);
     }
 
