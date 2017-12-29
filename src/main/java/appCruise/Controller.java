@@ -8,9 +8,10 @@ class Controller {
   private int controlState  = INACTIVE; //initial state
   private SpeedControl sc;
   private boolean isfixed;
+  volatile private CarSpeed cs;         //interface to control speed of engine
 
   Controller(CarSpeed cs, CruiseDisplay disp, boolean b)
-    {sc=new SpeedControl(cs,disp); isfixed=b;}
+    {this.cs = cs; sc=new SpeedControl(cs,disp); isfixed=b;}
 
   synchronized void brake(){
     if (controlState==CRUISING )
@@ -35,7 +36,7 @@ class Controller {
   }
 
   synchronized void on(){
-    if(controlState!=INACTIVE){
+    if(controlState!=INACTIVE && cs.getSpeed() > 40){
       sc.recordSpeed(); sc.enableControl();
       controlState=CRUISING;
     }
